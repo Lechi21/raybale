@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Raybale Logistics</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+        margin: 0;
+        font-family: 'poppins', sans-serif;
+        background: #f9f9f9;
+    }
+
+    .head {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        padding: 1rem 4rem;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        position: absolute;
+        top: 10px;
+        right: 0;
+        z-index: 10000111;
+        gap: 1rem;
+    }
+
+    .head nav {
+        background-color: #000;
+        color: #fff;
+        border-radius: 5px;
+    }
+
+    .head nav a {
+        color: #fff;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 36px;
+        letter-spacing: 1.25px;
+        text-align: center;
+        vertical-align: middle;
+        text-transform: uppercase;
+        text-decoration: none;
+        padding: 10px;
+    }
+
+    .head .logoText {
+        color: #000;
+        background-color: #fff;
+        border-radius: 5px;
+    }
+
+    .head .logoText p {
+        font-weight: 500;
+        font-size: 14px;
+        padding: 10px;
+        letter-spacing: 1.25px;
+        text-align: center;
+        vertical-align: middle;
+        text-transform: uppercase;
+        color: #000;
+        margin: 0;
+    }
+
+    header {
+        background: #000;
+        padding: 0px 90px 10px 90px;
+    }
+
+    .top {
+        position: relative;
+        height: 100vh;
+        background: 
+            linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+            url("images/Rectangle 1.png") center/cover no-repeat;
+        color: white;
+        display: flex;
+        align-items: center;
+        padding: 0 5%;
+        transition: transform 0.5s ease;
+    }
+
+    .top::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0);
+        transition: background 0.5s ease;
+        z-index: 1;
+    }
+
+    .top:hover {
+        transform: scale(1.02);
+    }
+
+    .top:hover::after {
+        background: rgba(0, 0, 0, 0.4);
+    }
+
+    .top > * {
+        /* position: relative; */
+        z-index: 2;
+    }
+
+    .header-contents {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        align-items: flex-end;
+    }
+
+    .hero-content {
+        max-width: 550px;
+        margin-top: 240px;
+    }
+
+    .hero-content .logoContent {
+        display: flex;
+        gap: 1rem;
+        cursor: pointer;
+    }
+
+    .hero-content .logoContent .logo {
+        text-transform: uppercase;
+        font-weight: 700;
+        font-size: 19px;
+        line-height: 37.88px;
+        letter-spacing: 0.24px;
+        vertical-align: middle;
+        color:#fff;
+        border: none;
+        background-color: transparent;
+        cursor: pointer;
+    }
+
+    .hero-content .logoContent img {
+        width: 35px;
+        height: 35px;
+        object-fit: contain;
+        position: relative;
+    }
+
+    .hero-content h1 {
+        margin-bottom: 20px;
+        font-weight: 600;
+        font-size: 56px;
+        line-height: 67px;
+        letter-spacing: 0.25px;
+        vertical-align: middle;
+    }
+
+    .hero-content p,
+    .hero-contents p {
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 28px;
+        letter-spacing: 0.15px;
+        vertical-align: middle;
+    }
+
+    .hero-contents {
+        display: flex;
+        background-color: #000;
+        padding: 15px;
+        width: auto;
+        height: fit-content;
+        overflow-y: hidden;
+        margin-top: 240px;
+        flex-direction: column;
+        border-radius: 35px 0 35px 0;
+    }
+    .section {
+      padding: 80px 5%;
+      background: white;
+    }
+    .stats {
+      display: flex;
+      justify-content: space-around;
+      background: black;
+      color: white;
+      padding: 40px 0;
+    }
+    .features {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 40px;
+    }
+    .card {
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    }
+    footer {
+      background: black;
+      color: white;
+      padding: 40px 5%;
+      margin-top: 60px;
+    }
+  </style>
+</head>
+<body>
+    <header>
+        <div class="top">
+            <div class="head">
+                <nav>
+                    <a href="#">Home</a>
+                </nav>
+                <div class="logoText">
+                    <p>Get Free Drayage Quote</p>
+                </div>
+            </div>
+            <div class="header-contents">
+                <div class="hero-content">
+                    <div class="logoContent">
+                        <img src="images/Vector.png" alt="">
+                        <button class="logo">raybale ltd.</button>
+                    </div>
+                    <h1>Your Premier <br> Midwest Drayage <br> Partner</h1>
+                    <p>We ensure seamless movement of your containers between <br> ports, rail yards, and warehouses, optimizing your supply <br> chain.</p>
+                    <button style="font-weight: 700; font-size: 14px; line-height: 36px; letter-spacing: 1.25px; vertical-align: middle;text-transform: uppercase; text-decoration: underline; background: none; color: #fff; border: none; padding: 0;  cursor: pointer;">Services</button>
+                </div>
+                <div class="hero-contents">
+                    <img src="images/square.png" alt="" style="width: 240px; height: 165px; object-fit: cover; position: relative; border-radius: 20px">
+                    <p>We’re logistics experts with <br> decades of experience <br> delivering smarter strategies <br> and stronger results.</p>
+                    <button style="font-weight: 700; font-size: 14px; line-height: 36px; letter-spacing: 1.25px; vertical-align: middle;text-transform: uppercase; text-decoration: underline; background: none; color: #fff; border: none; padding: 0;  cursor: pointer; text-align: left;">Services</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+  <section class="section">
+    <h2>Drayage Services You Can Count On</h2>
+    <p>Raybale delivers reliable logistics solutions across the Midwest.</p>
+  </section>
+
+  <div class="stats">
+    <div><h3>45M+ Miles</h3><p>Driven</p></div>
+    <div><h3>4,000+ Loads</h3><p>Delivered</p></div>
+    <div><h3>15+ Years</h3><p>Experience</p></div>
+  </div>
+
+  <section class="section">
+    <h2>Our Services</h2>
+    <div class="features">
+      <div class="card"><h3>Container Drayage</h3><p>Fast and secure port-to-door transport.</p></div>
+      <div class="card"><h3>Warehousing</h3><p>Reliable storage and handling services.</p></div>
+      <div class="card"><h3>Freight Brokerage</h3><p>Flexible and efficient cargo routing.</p></div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 Raybale Logistics. All Rights Reserved.</p>
+  </footer>
+</body>
+</html>

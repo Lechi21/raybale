@@ -1,11 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Raybale Logistics</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Raybale Logistics</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="icon" href="images/New Logo.png" type="image/png">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
+    <link href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css" type="text/css">
+    <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css"> -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@24,400,0,0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&amp;icon_names=support_agent">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather&amp;family=Outfit:wght@300;400;600&amp;family=Pacifico&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+
+    <style>
     body {
         margin: 0;
         font-family: 'poppins', sans-serif;
@@ -32,16 +47,19 @@
     }
 
     .head nav a {
+        display: flex;
         color: #fff;
         font-weight: 500;
         font-size: 14px;
         line-height: 36px;
         letter-spacing: 1.25px;
+        gap: 0.5rem;
         text-align: center;
         vertical-align: middle;
         text-transform: uppercase;
         text-decoration: none;
         padding: 10px;
+        align-items: center;
     }
 
     .head .logoText {
@@ -51,6 +69,7 @@
     }
 
     .head .logoText p {
+        display: flex;
         font-weight: 500;
         font-size: 14px;
         padding: 10px;
@@ -60,6 +79,8 @@
         text-transform: uppercase;
         color: #000;
         margin: 0;
+        align-items: center;
+        gap: 0.5rem;
     }
 
     header {
@@ -110,11 +131,12 @@
         justify-content: space-between;
         width: 100%;
         align-items: flex-end;
+        margin-top: 50px;
     }
 
     .hero-content {
         max-width: 550px;
-        margin-top: 240px;
+        margin-top: 200px;
     }
 
     .hero-content .logoContent {
@@ -172,6 +194,28 @@
         flex-direction: column;
         border-radius: 35px 0 35px 0;
     }
+
+    .service-btn {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: none;
+        border: none;
+        color: #fff;
+        font-weight: 700;
+        cursor: pointer;
+        padding: 0;
+        font-size: 14px; 
+        line-height: 36px; 
+        letter-spacing: 1.25px;
+        text-transform: uppercase; 
+        cursor: pointer;
+    }
+
+    .service-btn .text-part {
+        text-decoration: underline;
+    }
+
     .section {
       padding: 80px 5%;
       background: white;
@@ -208,10 +252,17 @@
         <div class="top">
             <div class="head">
                 <nav>
-                    <a href="#">Home</a>
+                    <a href="#">
+                        <span class="material-icons-sharp">
+                            menu_open
+                        </span>Home</a>
                 </nav>
                 <div class="logoText">
-                    <p>Get Free Drayage Quote</p>
+                    <p><span class="material-icons-sharp">
+                        arrow_outward
+                        </span>
+                        Get Free Drayage Quote
+                    </p>
                 </div>
             </div>
             <div class="header-contents">
@@ -222,39 +273,45 @@
                     </div>
                     <h1>Your Premier <br> Midwest Drayage <br> Partner</h1>
                     <p>We ensure seamless movement of your containers between <br> ports, rail yards, and warehouses, optimizing your supply <br> chain.</p>
-                    <button style="font-weight: 700; font-size: 14px; line-height: 36px; letter-spacing: 1.25px; vertical-align: middle;text-transform: uppercase; text-decoration: underline; background: none; color: #fff; border: none; padding: 0;  cursor: pointer;">Services</button>
+                    <button class="service-btn">
+                        <span class="text-part">Services</span>
+                        <span class="material-icons-sharp">arrow_outward</span>
+                    </button>
                 </div>
                 <div class="hero-contents">
                     <img src="images/square.png" alt="" style="width: 240px; height: 165px; object-fit: cover; position: relative; border-radius: 20px">
                     <p>We’re logistics experts with <br> decades of experience <br> delivering smarter strategies <br> and stronger results.</p>
-                    <button style="font-weight: 700; font-size: 14px; line-height: 36px; letter-spacing: 1.25px; vertical-align: middle;text-transform: uppercase; text-decoration: underline; background: none; color: #fff; border: none; padding: 0;  cursor: pointer; text-align: left;">Services</button>
+                    <button class="service-btn">
+                        <span class="text-part">Services</span>
+                        <span class="material-icons-sharp">arrow_outward</span>
+                    </button>
                 </div>
             </div>
         </div>
     </header>
 
-  <section class="section">
-    <h2>Drayage Services You Can Count On</h2>
-    <p>Raybale delivers reliable logistics solutions across the Midwest.</p>
-  </section>
+    <section class="section">
+        <h2>Drayage Services You Can Count On</h2>
+        <p>Raybale delivers reliable logistics solutions across the Midwest.</p>
+    </section>
 
-  <div class="stats">
-    <div><h3>45M+ Miles</h3><p>Driven</p></div>
-    <div><h3>4,000+ Loads</h3><p>Delivered</p></div>
-    <div><h3>15+ Years</h3><p>Experience</p></div>
-  </div>
-
-  <section class="section">
-    <h2>Our Services</h2>
-    <div class="features">
-      <div class="card"><h3>Container Drayage</h3><p>Fast and secure port-to-door transport.</p></div>
-      <div class="card"><h3>Warehousing</h3><p>Reliable storage and handling services.</p></div>
-      <div class="card"><h3>Freight Brokerage</h3><p>Flexible and efficient cargo routing.</p></div>
+    <div class="stats">
+        <div><h3>45M+ Miles</h3><p>Driven</p></div>
+        <div><h3>4,000+ Loads</h3><p>Delivered</p></div>
+        <div><h3>15+ Years</h3><p>Experience</p></div>
     </div>
-  </section>
 
-  <footer>
-    <p>© 2025 Raybale Logistics. All Rights Reserved.</p>
-  </footer>
+    <section class="section">
+        <h2>Our Services</h2>
+        <div class="features">
+        <div class="card"><h3>Container Drayage</h3><p>Fast and secure port-to-door transport.</p></div>
+        <div class="card"><h3>Warehousing</h3><p>Reliable storage and handling services.</p></div>
+        <div class="card"><h3>Freight Brokerage</h3><p>Flexible and efficient cargo routing.</p></div>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2025 Raybale Logistics. All Rights Reserved.</p>
+    </footer>
 </body>
 </html>

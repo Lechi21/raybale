@@ -445,6 +445,53 @@ header {
     border: 1px solid #ffffff;
 }
 
+.location {
+    display: flex;
+}
+
+.locate {
+    display: flex;
+    gap: 1rem;
+    width: 100%;
+}
+
+.locate .left,
+.locate .right {
+    flex-basis: 50%;
+}
+
+.locate .left .serviceTop {
+    font-weight: 400;
+    font-size: 32px;
+    padding-top: 15px;
+    line-height: 40px;
+    letter-spacing: 0.25px;
+    vertical-align: middle;
+}
+
+.left-inner .spans {
+    display: flex;
+    align-items: center;
+    font-size: 13px;
+    margin: 0;
+}
+
+.down {
+    color: #fff;
+    background: #000;
+    margin-top: 20px;
+    border-radius: 5px;
+    width: fit-content;
+    padding: 4px 10px;
+    font-weight: 600;
+    font-size: 14px !important;
+    line-height: 36px;
+    letter-spacing: 1.25px;
+    text-align: center;
+    vertical-align: middle;
+    text-transform: uppercase;
+}
+
 .card {
     background: #fff;
     padding: 20px;

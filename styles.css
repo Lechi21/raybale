@@ -230,11 +230,20 @@ header {
     justify-content: center;
 }
 
+.section .trucks h4 {
+    padding-top: 10px;
+}
+
 .section .trucks img {
     width: 311px;
     height: 255px;
     opacity: 1;
     border-radius: 19px;
+    transition: transform 0.5s ease;
+}
+
+.section .trucks img:hover {
+    transform: scale(1.03);
 }
 
 .trust h2 {

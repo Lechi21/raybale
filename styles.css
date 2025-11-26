@@ -193,6 +193,160 @@ header {
     text-decoration: underline;
 }
 
+/* FULLSCREEN MENU OVERLAY */
+#menuOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    color: #fff;
+    z-index: 9999;
+    opacity: 0;
+    pointer-events: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: opacity 0.4s ease;
+    padding: 90px 270px;
+}
+
+/* When active – fade in */
+#menuOverlay.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+#menuOverlay .topSide {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+}
+
+.logSit {
+    background-color: #000;
+    color: #fff;
+    border-radius: 5px;
+}
+
+.logSit .logoContent {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logSit .logoContent img {
+    width: 35px;
+    height: 35px;
+    object-fit: contain;
+    position: relative;
+}
+
+.logSit .logoContent button {
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 19px;
+    line-height: 37.88px;
+    letter-spacing: 0.24px;
+    vertical-align: middle;
+    color: #fff;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.topSide .nepa {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+
+.nepa .logoText {
+    color: #000;
+    background-color: #fff;
+    border-radius: 5px;
+}
+
+.nepa .logoText p {
+    display: flex;
+    font-weight: 500;
+    font-size: 14px;
+    padding: 10px;
+    letter-spacing: 1.25px;
+    text-align: center;
+    vertical-align: middle;
+    text-transform: uppercase;
+    color: #000;
+    margin: 0;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Close Button */
+.close-btn {
+    background-color: #000;
+    color: #fff;
+    border-radius: 5px;
+    border: 2px solid #ffffff;
+}
+
+.close-btn a {
+    display: flex;
+    color: #fff;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 36px;
+    letter-spacing: 1.25px;
+    gap: 0.5rem;
+    text-align: center;
+    vertical-align: middle;
+    text-transform: uppercase;
+    text-decoration: none;
+    /* padding: 10px; */
+    align-items: center;
+}
+
+/* Center Menu Items */
+.overlay-content {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    margin-top: 40px;
+}
+
+.overlay-content a {
+    font-size: 48px;
+    font-weight: 700;
+    text-decoration: none;
+    color: #fff;
+    letter-spacing: 2px;
+    transition: opacity 0.3s ease;
+}
+
+.overlay-content a:hover {
+    opacity: 0.6;
+}
+
+/* Footer */
+.overlay-footer {
+    font-size: 12px;
+    color: #fff;
+}
+
+.foots {
+    display: flex;
+    justify-content: space-between;
+}
+
+.foots p {
+    font-size: 14px;
+    line-height: 36px;
+    letter-spacing: 1px;
+    color: #fff;
+}
+
 .section {
     padding: 60px 145.6px;
     background: white;
@@ -478,6 +632,11 @@ header {
     align-items: center;
     font-size: 13px;
     margin: 0;
+    gap: 5px;
+}
+
+.left-inner .spans a {
+    text-decoration: none;
 }
 
 .down {
@@ -496,6 +655,59 @@ header {
     text-transform: uppercase;
 }
 
+.faq-section {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+.faq-title {
+    text-align: center;
+    font-weight: 400;
+    margin-bottom: 40px;
+}
+
+.faq-item {
+    border-bottom: 1px solid #e0e0e0;
+    padding: 20px 0;
+}
+
+.faq-question {
+    width: 100%;
+    background: none;
+    border: none;
+    font-size: 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    font-weight: 500;
+    padding: 0;
+}
+
+.faq-icon {
+    font-size: 24px;
+    transition: transform 0.2s ease;
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: all 0.3s ease;
+    font-size: 16px;
+    line-height: 1.6;
+    margin-top: 10px;
+}
+.faq-item.active .faq-answer {
+    max-height: 300px;
+    opacity: 1;
+}
+.faq-item.active .faq-icon {
+    content: "-";
+    transform: rotate(180deg);
+}
+
 .card {
     background: #fff;
     padding: 20px;
@@ -503,9 +715,120 @@ header {
     box-shadow: 0 4px 20px rgba(0,0,0,0.08);
 }
 
-footer {
-    background: black;
-    color: white;
-    padding: 40px 5%;
-    margin-top: 60px;
+.footer {
+    background: #000;
+    color: #fff;
+    padding: 60px 145.6px;
+}
+
+.footer-top {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1fr 1fr;
+    gap: 50px;
+}
+
+.footer-column .logoContent img {
+    width: 35px;
+    height: 35px;
+}
+
+.footer-column .logoContent {
+    display: flex;
+    align-items: center;
+    align-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.footer-column .logoContent button {
+    font-weight: 700;
+    font-size: 21px;
+    line-height: 40px;
+    letter-spacing: 0.25px;
+    vertical-align: middle;
+    color: #ffffff;
+    background: none;
+    border: none;
+}
+
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-column a {
+    text-decoration: none;
+    color: #d1d1d1;
+    font-size: 14px;
+    transition: 0.2s ease;
+    letter-spacing: 2px;
+    line-height: 32px;
+}
+
+.footer-column a:hover {
+    color: #fff;
+}
+
+.footer-heading {
+    font-size: 13px;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+    color: #8E8E93;
+}
+
+.footer-company {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.footer-desc {
+    max-width: 260px;
+    line-height: 1.5;
+    color: #c8c8c8;
+    font-size: 14px;
+    margin-bottom: 70px;
+}
+
+.footer-copy {
+    font-size: 13px;
+    color: #FFFFFF;
+}
+
+.footer-bottom {
+    padding: 20px 0;
+    text-align: center;
+    background: #000;
+    color: #ffffff;
+    width: 100%;
+}
+
+.footer-bottom h1 {
+    font-size: 220px;
+    font-weight: 800;
+    letter-spacing: 5px;
+    margin: 0;
+}
+
+/* Responsive */
+@media (max-width: 1100px) {
+  .footer-top {
+    grid-template-columns: 1fr 1fr 1fr;
+    padding: 0 30px;
+  }
+
+  .footer-bottom h1 {
+    font-size: 70px;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer-top {
+    grid-template-columns: 1fr;
+    text-align: left;
+  }
+
+  .footer-bottom h1 {
+    font-size: 40px;
+  }
 }

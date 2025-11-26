@@ -209,7 +209,7 @@ header {
     flex-direction: column;
     justify-content: space-between;
     transition: opacity 0.4s ease;
-    padding: 90px 270px;
+    padding: 90px 160px;
 }
 
 /* When active – fade in */
@@ -222,6 +222,12 @@ header {
     display: flex;
     justify-content: space-between;
     width: 100%;
+    align-items: center;
+}
+
+.baskets {
+    display: flex;
+    justify-content: space-between;
     align-items: center;
 }
 
@@ -317,7 +323,7 @@ header {
 }
 
 .overlay-content a {
-    font-size: 48px;
+    font-size: 56px;
     font-weight: 700;
     text-decoration: none;
     color: #fff;
@@ -327,6 +333,15 @@ header {
 
 .overlay-content a:hover {
     opacity: 0.6;
+}
+
+.overlay-image p {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 20px;
+    letter-spacing: 0.4px;
+    text-align: right;
+    vertical-align: middle;
 }
 
 /* Footer */

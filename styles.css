@@ -818,6 +818,7 @@ header {
 }
 
 .footer-bottom {
+    display: flex;
     padding: 20px 0;
     text-align: center;
     background: #000;
@@ -826,9 +827,10 @@ header {
 }
 
 .footer-bottom h1 {
-    font-size: 220px;
+    flex: 1;
+    font-size: 12vw;
     font-weight: 800;
-    letter-spacing: 5px;
+    /* letter-spacing: 5px; */
     margin: 0;
 }
 

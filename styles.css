@@ -1116,7 +1116,7 @@ header {
     .carousel-inner,
     .carousel-inner img {
         align-items: center;
-        width: 500px !important;
+        width: auto;
         height: 400px !important;
     }
 

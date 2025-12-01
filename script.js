@@ -36,3 +36,11 @@ closeMenuBtn.addEventListener("click", () => {
     menuOverlay.classList.remove("active");
     document.body.style.overflow = "auto"; // RESTORE SCROLL
 });
+
+// DROPDOWN
+document.querySelector('.dropdown-toggle').addEventListener('click', function (e) {
+    e.preventDefault();
+    const parent = this.closest('.menu-item');
+    parent.classList.toggle('active');
+});
+

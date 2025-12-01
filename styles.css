@@ -1035,6 +1035,10 @@ header {
         margin-bottom: 3rem;
     }
 
+    .another {
+        text-align: left !important;
+    }
+
     /* ===== ABOUT TRUCK SECTION ===== */
     .section .trucks {
         flex-direction: column;
@@ -1212,22 +1216,120 @@ header {
 }
 
 
-/* Very small phones */
-/* @media (max-width: 480px) {
-    .hero-content h1 {
-        font-size: 30px;
-        line-height: 38px;
+/* ------------ Tablet Screens (<=1024px) ------------ */
+@media (max-width: 1024px) {
+    #menuOverlay {
+        padding: 70px 80px;
     }
 
-    .secText p {
-        font-size: 22px;
-        line-height: 30px;
+    .overlay-content a {
+        font-size: 42px;
     }
 
-    .stats {
+    .overlay-image img {
+        width: 380px;
+        height: 250px;
+    }
+
+    .topSide .nepa {
+        gap: 1rem;
+    }
+}
+
+
+/* ------------ Large Phones / Small Tablets (<=768px) ------------ */
+@media (max-width: 768px) {
+    #menuOverlay {
+        padding: 50px 40px;
+    }
+
+    .topSide {
+        gap: 20px;
+        align-items: flex-start;
+    }
+
+    .logSit .logoContent {
+        gap: 0.6rem;
+    }
+
+    .close-btn {
+        padding: 0px 4px;
+    }
+
+    .close-btn .material-icons-sharp {
+        font-size: 20px; 
+    }
+
+    .baskets {
         flex-direction: column;
-        gap: 2rem;
-        width: 100%;
+        gap: 30px;
+        text-align: left;
+        align-items: flex-start;
     }
-} */
+
+    .overlay-content {
+        gap: 20px;
+        margin-top: 40px;
+    }
+
+    .overlay-content a {
+        font-size: 32px;
+    }
+
+    .overlay-image img {
+        width: 100%;
+        max-width: 350px;
+        height: auto;
+    }
+
+    .overlay-image p {
+        text-align: left;
+        vertical-align: middle;
+    }
+
+    .overlay-footer {
+        font-size: 10px;
+    }
+
+    .foots {
+        flex-direction: column;
+        /* gap: 10px; */
+    }
+
+    .foots p {
+        margin: 0;
+    }
+}
+
+
+/* ------------ Small Phones (<=480px) ------------ */
+@media (max-width: 480px) {
+    #menuOverlay {
+        padding: 40px 20px;
+    }
+
+    .overlay-content a {
+        font-size: 26px;
+        letter-spacing: 1px;
+    }
+
+    .overlay-image img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .nepa .logoText p {
+        font-size: 10px;
+        padding: 6px 8px;
+    }
+
+    .close-btn a {
+        font-size: 10px;
+    }
+
+    .overlay-footer {
+        font-size: 9px;
+    }
+}
+
 

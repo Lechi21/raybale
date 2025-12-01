@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css" type="text/css">
 </head>
 <body>
     <header>
@@ -87,21 +88,26 @@
 
         <div class="baskets">
             <div class="overlay-content">
-                <a href="#">SERVICES</a>
-                <div class="menu-item has-dropdown">
-                    <a href="#" class="dropdown-toggle">SERVICES 
-                        <span class="material-icons-sharp arrow-icon">expand_more</span>
-                    </a>
-
-                    <div class="dropdown-menu">
-                        <a href="#">Drayage Services</a>
-                        <a href="#">Truckload Transportation</a>
-                        <a href="#">Container Warehouse</a>
-                    </div>
-                </div>
-                <a href="#">ABOUT US</a>
-                <a href="#">CONTACT US</a>
-                <a href="#">FAQ</a>
+                <ul class="menu">
+                    <li><a href="#" class="service-toggle">SERVICES<i class="fa fa-caret-down"></i></a>
+                        <div class="dropdown">
+                            <ul>
+                                <li><a href="#">Drayage Services</a></li>
+                                <li><a href="#">Truckload Transportation</a></li>
+                                <li><a href="#">Truckload Transportation</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="#" class="drop">ABOUT US</a>
+                    </li>
+                    <li>
+                        <a href="#">CONTACT US</a>
+                    </li>
+                    <li>
+                        <a href="#">FAQ</a>
+                    </li>
+                </ul>
             </div>
             <div class="overlay-image">
                 <img src="images/Rectangle 1.png" alt="" style="width: 517px; height: 320px; object-fit: cover; position: relative; border-radius: 20px">

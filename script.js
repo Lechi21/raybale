@@ -38,9 +38,14 @@ closeMenuBtn.addEventListener("click", () => {
 });
 
 // DROPDOWN
-document.querySelector('.dropdown-toggle').addEventListener('click', function (e) {
+document.querySelector(".service-toggle").addEventListener("click", function (e) {
     e.preventDefault();
-    const parent = this.closest('.menu-item');
-    parent.classList.toggle('active');
+
+    const dropdown = this.nextElementSibling;
+    const icon = this.querySelector(".fa");
+
+    dropdown.classList.toggle("open");
+    icon.classList.toggle("rotate");
 });
+
 

@@ -237,49 +237,6 @@ header {
     align-items: center;
 }
 
-/* Dropdown Wrapper */
-.menu-item {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-/* Services row with arrow */
-.menu-item .dropdown-toggle {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    cursor: pointer;
-}
-
-/* Arrow icon animation */
-.arrow-icon {
-    transition: transform 0.3s ease;
-}
-
-/* Hidden by default */
-.dropdown-menu {
-    display: none;
-    flex-direction: column;
-    padding-left: 20px;
-    gap: 8px;
-}
-
-.dropdown-menu a {
-    font-size: 18px;
-    letter-spacing: 1px;
-    opacity: 0.8;
-}
-
-/* Active classes (added by JS) */
-.menu-item.active .dropdown-menu {
-    display: flex;
-}
-
-.menu-item.active .arrow-icon {
-    transform: rotate(180deg);
-}
-
 .logSit {
     background-color: #000;
     color: #fff;
@@ -365,6 +322,11 @@ header {
 }
 
 /* Center Menu Items */
+.menu,
+.dropdown ul {
+    list-style-type: none;
+}
+
 .overlay-content {
     display: flex;
     flex-direction: column;
@@ -383,6 +345,45 @@ header {
 
 .overlay-content a:hover {
     opacity: 0.6;
+}
+
+/* Dropdown container */
+.dropdown {
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.35s ease;
+}
+
+/* When open */
+.dropdown.open {
+    max-height: 500px;
+}
+
+/* Dropdown links */
+.dropdown a {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 32px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.fa {
+    margin-left: 20px;
+    transition: transform 0.3s ease;
+}
+
+.fa.rotate {
+    transform: rotate(180deg);
+}
+
+.dropdown a {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 32px;
+    letter-spacing: 2px;
+    vertical-align: middle;
+    text-transform: uppercase;
 }
 
 .overlay-image p {
@@ -1061,6 +1062,14 @@ header {
 
     .logoText {
         display: none;
+    }
+
+    .dropdown a {
+        font-size: 14px !important;
+    }
+
+    .fa {
+        margin-left: 15px;
     }
 
     .hero-content,

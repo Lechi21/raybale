@@ -886,11 +886,16 @@ header {
 
 
 /*============== SERVICES-1 ==================*/
+.first-section {
+    padding: 15px 145.6px 60px 145.6px;
+    background: white;
+}
+
 .heads {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); */
     position: relative;
     top: 10px;
     z-index: 10000111;
@@ -938,6 +943,146 @@ header {
     align-content: center;
     margin: 0;
     gap: 0.5rem;
+}
+
+.logSits {
+    /* background-color: #000; */
+    color: #fff;
+    border-radius: 5px;
+}
+
+.logSits .logoContents {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.logSits .logoContents img {
+    width: 35px;
+    height: 35px;
+    object-fit: contain;
+    position: relative;
+}
+
+.logSits .logoContents button {
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 19px;
+    line-height: 37.88px;
+    letter-spacing: 0.24px;
+    vertical-align: middle;
+    color: #000;
+    background-color: transparent;
+    cursor: pointer;
+    border: none;
+}
+
+.header-contenters {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: flex-start;
+    margin-top: 110px;
+}
+
+.hero-contend {
+    max-width: 550px;
+}
+
+.hero-contend h1 {
+    font-size: 56px;
+    font-weight: 600;
+    font-family: Poppins;
+    line-height: 73px;
+    letter-spacing: 0.25px;
+}
+
+.service-btns {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: none;
+    border: none;
+    font-weight: 700;
+    cursor: pointer;
+    padding: 0;
+    font-size: 14px;
+    line-height: 36px;
+    letter-spacing: 1.25px;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.hero-contenders {
+    display: flex;
+    color: #fff;
+    background-color: #000;
+    padding: 15px;
+    width: auto;
+    height: fit-content;
+    overflow-y: hidden;
+    flex-direction: column;
+    border-radius: 35px 0 35px 0;
+    max-width: 390px;
+}
+
+.hero-contenders p {
+    color: #fff;
+    font-weight: 400;
+    font-style: Regular;
+    font-size: 15px;
+    line-height: 28px;
+    letter-spacing: 0.15px;
+    vertical-align: middle;
+}
+
+.service-btnn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: none;
+    border: none;
+    color: #fff;
+    font-weight: 700;
+    cursor: pointer;
+    padding: 0;
+    font-size: 14px;
+    line-height: 36px;
+    letter-spacing: 1.25px;
+    text-transform: uppercase;
+    cursor: pointer;
+    justify-content: flex-end;
+}
+
+.topBoy {
+    width: 100%;
+    height: 60vh;
+}
+.topBoy img {
+    height: 60vh;
+    width: 100%;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+}
+
+.statistics {
+    text-align: center;
+}
+
+.statistics h2 {
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 40px;
+    letter-spacing: 0.25px;
+}
+
+.statistics p {
+    font-weight: 400;
+    font-style: Regular;
+    font-size: 14px;
+    line-height: 28px;
+    letter-spacing: 0.15px;
+    text-align: center;
 }
 
 /* ===== Large tablets / small laptops ===== */

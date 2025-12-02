@@ -1085,6 +1085,13 @@ header {
     text-align: center;
 }
 
+.right-inner img {
+    width: 465px;
+    height: 152px;
+    opacity: 1;
+    border-radius: 19px;
+}
+
 /* ===== Large tablets / small laptops ===== */
 @media (max-width: 1200px) {
     header {

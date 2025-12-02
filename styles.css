@@ -885,6 +885,61 @@ header {
 }
 
 
+/*============== SERVICES-1 ==================*/
+.heads {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    position: relative;
+    top: 10px;
+    z-index: 10000111;
+}
+
+.top-right {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+
+.heads nav {
+    border-radius: 5px;
+}
+
+.heads nav a {
+    display: flex;
+    font-weight: 500;
+    color: #ffffff;
+    background: #000;
+    border-radius: 4px;
+    font-size: 14px;
+    line-height: 36px;
+    letter-spacing: 1.25px;
+    gap: 0.5rem;
+    text-align: center;
+    vertical-align: middle;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 7px 10px;
+    align-items: center;
+}
+
+.logoTexts {
+    border: 1px solid #000;
+    font-weight: 500;
+    border-radius: 4px;
+    font-size: 14px;
+    padding: 10px;
+}
+
+.logoTexts p {
+    display: flex;
+    align-items: center;
+    align-content: center;
+    margin: 0;
+    gap: 0.5rem;
+}
+
 /* ===== Large tablets / small laptops ===== */
 @media (max-width: 1200px) {
     header {

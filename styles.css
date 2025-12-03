@@ -1238,12 +1238,48 @@ header {
 
 /* TITLE */
 .benefit-card h2 {
+    display: flex;
     font-weight: 400;
     font-size: 34px;
     line-height: 40px;
     letter-spacing: 0.25px;
     vertical-align: middle;
     margin-bottom: 25px;
+    align-items: center;
+}
+
+.benefits-containers {
+    width: 75%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.benefit-cards {
+    background: #ECECEC;
+    padding: 40px;
+    border-radius: 20px;
+    width: 100%;
+    max-width: 790px;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease;
+}
+
+.benefit-cards.active {
+    animation: fadeUp 0.8s ease forwards;
+}
+
+.benefit-cards h2 {
+    display: flex;
+    font-weight: 400;
+    font-size: 34px;
+    line-height: 40px;
+    letter-spacing: 0.25px;
+    vertical-align: middle;
+    margin-bottom: 25px;
+    align-items: center;
 }
 
 /* ANIMATION */

@@ -49,3 +49,7 @@ document.querySelector(".service-toggle").addEventListener("click", function (e)
 });
 
 
+function goHome() {
+  window.location.href = "index.html";
+}
+

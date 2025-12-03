@@ -1453,31 +1453,6 @@ header {
     text-decoration: none;
 }
 
-/* RESPONSIVE */
-@media (max-width: 992px) {
-    .benefits-container {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .benefit-card {
-        max-width: 100%;
-    }
-}
-
-
-/* RESPONSIVE */
-@media (max-width: 992px) {
-    .services-container {
-        flex-direction: column;
-        text-align: left;
-    }
-
-    .services-right img {
-        width: 100%;
-    }
-}
-
 
 /* ===== Large tablets / small laptops ===== */
 @media (max-width: 1200px) {
@@ -1641,6 +1616,24 @@ header {
 
     .footer-bottom h1 {
         font-size: 90px;
+    }
+
+    .services-container {
+        flex-direction: column;
+        text-align: left;
+    }
+
+    .services-right img {
+        width: 100%;
+    }
+
+    .benefits-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .benefit-card {
+        max-width: 100%;
     }
 }
 

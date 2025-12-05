@@ -1869,6 +1869,10 @@ header {
     .cat {
         display: none;
     }
+
+    .faq-question {
+        text-align: left;
+    }
 }
 
 

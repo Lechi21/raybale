@@ -1647,11 +1647,11 @@ header {
 /* Phones */
 @media (max-width: 768px) {
     header {
-        height: 165vh;
+        height: 133vh;
     }
 
     .top {
-        height: 163vh;
+        height: 130vh;
     }
 
     .logoText {

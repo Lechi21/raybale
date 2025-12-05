@@ -1454,6 +1454,13 @@ header {
 }
 
 
+.right-inners img {
+    width: 552px;
+    height: 320px;
+    opacity: 1;
+    border-radius: 19px;
+}
+
 /* ===== Large tablets / small laptops ===== */
 @media (max-width: 1200px) {
     header {

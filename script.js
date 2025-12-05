@@ -53,3 +53,15 @@ function goHome() {
   window.location.href = "index.html";
 }
 
+function goPageW() {
+  window.location.href = "Warehouse.html";
+}
+
+function goPageT() {
+  window.location.href = "Transportation.html";
+}
+
+function goPageD() {
+  window.location.href = "services-1.html";
+}
+

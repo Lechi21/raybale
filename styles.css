@@ -1581,7 +1581,68 @@ header {
     .footer-bottom h1 {
         font-size: 110px;
     }
+
+    /* SERVICES */
+    .first-section {
+        padding: 0 5% 40px 5%;
+    }
+
+    .header-contenters {
+        gap: 2rem;
+    }
+
+    .hero-contend h1 {
+        font-size: 46px;
+        line-height: 63px;
+    }
+
+    .hero-contenders {
+        max-width: 340px;
+    }
+
+    .hero-contenders img {
+        width: 308px !important;
+    }
+
+    .hero-contenders p {
+        font-size: 13px;
+        line-height: 25px;
+        letter-spacing: 0.15px;
+    }
+
+    .right-inner img {
+        width: 435px !important;
+    }
+
+    .services-container {
+        width: 100%;
+        gap: 3rem;
+    }
+
+    .services-right img {
+        width: 420px;
+        height: 310px;
+    }
+
+    .timeline-item .dot {
+        width: 15px;
+        height: 14px;
+    }
+
+    .benefits-container {
+        width: 100%;
+    }
+
+    .sectioning {
+        padding: 60px 20px;
+    }
+
+    .info-panels {
+        margin-top: 0px;
+        padding: 0px;
+    }
 }
+
 
 /* ============================
    MOBILE RESPONSIVE FIXES
@@ -1630,8 +1691,8 @@ header {
         text-align: left;
     }
 
-    .services-right img {
-        width: 100%;
+    .right-inner img {
+        width: 370px !important;
     }
 
     .benefits-container {
@@ -1873,75 +1934,11 @@ header {
     .faq-question {
         text-align: left;
     }
-}
 
-/* ============================================
-   📌 1200px and below (Large screens → Desktop)
-   ============================================ */
-@media (max-width: 1200px) {
-    /* Example adjustments */
     .first-section {
-        padding: 0 5%;
+        padding: 15px 20px 40px 20px;
     }
 
-    .header-contenters {
-        gap: 2rem;
-    }
-
-    .hero-contend h1 {
-        font-size: 3.5rem;
-    }
-
-    .services-container {
-        gap: 3rem;
-    }
-
-    /* Add your own rules here */
-}
-
-
-
-/* ============================================
-   📌 992px and below (Medium screens → Tablets)
-   ============================================ */
-@media (max-width: 992px) {
-    .heads {
-        flex-direction: column;
-        gap: 1.5rem;
-    }
-
-    .header-contenters {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .statistics {
-        text-align: center;
-    }
-
-    .section .location {
-        flex-direction: column;
-    }
-
-    .services-container {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .services-right img {
-        width: 100%;
-        height: auto;
-    }
-
-    /* Add your own rules here */
-}
-
-
-
-/* ============================================
-   📌 768px and below (Mobile)
-   ============================================ */
-@media (max-width: 768px) {
     .hero-contend h1 {
         font-size: 2.7rem;
         line-height: 1.1;
@@ -1955,8 +1952,30 @@ header {
         width: 100%;
     }
 
-    .top-right nav {
-        display: none; /* Typical mobile menu behavior */
+    .top-right .logoTexts {
+        display: none;
+    }
+
+    .header-contenters {
+        flex-direction: column;
+    }
+
+    .statistics {
+        margin-bottom: 2rem;
+    }
+
+    .achs h2 {
+        text-align: center;
+        margin-bottom: 0rem;
+    }
+
+    .clocks {
+        align-items: flex-start !important;
+        justify-content: flex-start !important;
+    }
+
+    .sectioner {
+        padding: 20px;
     }
 
     .baskets {
@@ -1968,8 +1987,23 @@ header {
         flex-direction: column;
     }
 
+    .sectioning {
+        align-items: flex-start;
+        text-align: left;
+    }
+
     .quote-form {
+        width: 100%;
         flex-direction: column;
+    }
+
+    .quote-form input, 
+    .quote-form select, 
+    .quote-form .form-right 
+    .below-form-right input, .quote-form 
+    .form-right 
+    .below-form-right select {
+        width: 100%;
     }
 
     .form-left,
@@ -1981,15 +2015,27 @@ header {
         flex-direction: column;
     }
 
-    footer .footer-top {
-        grid-template-columns: 1fr;
-        text-align: center;
+    .tanker {
+        width: 100%;
     }
 
-    /* Add your own rules here */
+    .tanker .benefit-cards {
+        padding: 15px !important;
+    }
+
+    .right-inners img {
+        width: 420px;
+        height: 250px;
+    }
+
+    .potters {
+        display: none;
+    }
+
+    .kates {
+        gap: 2rem !important;
+    }
 }
-
-
 
 /* ------------ Tablet Screens (<=1024px) ------------ */
 @media (max-width: 1024px) {

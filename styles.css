@@ -1461,6 +1461,133 @@ header {
     border-radius: 19px;
 }
 
+/* =========== ABOUT US =============== */
+.topBoyS {
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+}
+
+.topBoyS img {
+    height: 90vh;
+    width: 35%;
+    position: absolute;
+    top: 170px;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+}
+
+.section-about {
+    padding: 60px 145.6px;
+    background: #000;
+    color: #fff;
+}
+
+.section-about img {
+    width: 395px;
+    height: 384px;
+}
+
+.ups {
+    max-width: 425px;
+    padding: 15px;
+    background: #3C3C4399;
+    border-radius: 20px 20px 0 20px;
+}
+
+.ups p {
+    font-size: 15px;
+    font-weight: 400;
+    font-family: Poppins;
+    line-height: 20px;
+    letter-spacing: 0.4px;
+    margin: 0;
+}
+
+.started {
+    padding: 60px 145.6px;
+    background: #000;
+    color: #fff;
+}
+
+.four-cards {
+    display: flex;
+    gap: 2rem;
+    margin-top: 4rem;
+}
+
+.cards {
+    background:#EDEDED;
+    padding: 30px;
+    border-radius: 12px;
+    flex: 1;
+    text-align: left;
+}
+
+.cards h3 {
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 28px;
+    letter-spacing: 0.15px;
+    vertical-align: middle;
+}
+
+.cards p {
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 20px;
+    letter-spacing: 0.4px;
+    vertical-align: middle;
+}
+
+.crops {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 36px;
+    letter-spacing: 2.25px;
+    color: #fff;
+    background: #000;
+    border-radius: 5px;
+    padding: 10px;
+    text-align: center;
+    vertical-align: middle;
+    text-transform: uppercase;
+}
+
+.tel,
+.email {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.top-section {
+    padding: 15px 145.6px 40px 145.6px;
+    background: #fff;
+}
+
+.two-section {
+    padding: 15px 145.6px 60px 145.6px;
+    background: #000;
+    color: #fff;
+}
+
+.too {
+    margin-top: 45px !important;
+}
+
+.cars {
+    display: flex;
+    color: #fff;
+    background-color: #3C3C4399;
+    padding: 17px 50px 17px 17px;
+    width: auto;
+    height: fit-content;
+    overflow-y: hidden;
+    flex-direction: column;
+    border-radius: 16px 16px 0 16px;
+    max-width: 390px;
+}
+
 /* ===== Large tablets / small laptops ===== */
 @media (max-width: 1200px) {
     header {

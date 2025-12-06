@@ -1952,6 +1952,10 @@ header {
         padding: 15px 20px 40px 20px;
     }
 
+    .hero-contenders img {
+        width: auto !important;
+    }
+
     .hero-contend h1 {
         font-size: 2.7rem;
         line-height: 1.1;
@@ -2041,12 +2045,28 @@ header {
         height: 250px;
     }
 
+    .right-inner img {
+        width: auto !important;
+    }
+
+    .services-right img {
+        width: auto !important;
+        height: 310px;
+    }
+
     .potters {
         display: none;
     }
 
     .kates {
         gap: 2rem !important;
+    }
+
+    .info-card {
+        border-radius: 12px;
+        padding: 40px 30px;
+        flex: 1;
+        min-width: 300px;
     }
 }
 

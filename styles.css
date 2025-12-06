@@ -1620,7 +1620,7 @@ header {
     }
 
     .services-right img {
-        width: 420px;
+        width: 380px;
         height: 310px;
     }
 
@@ -1640,6 +1640,10 @@ header {
     .info-panels {
         margin-top: 0px;
         padding: 0px;
+    }
+
+    .contact-box {
+        width: 100%;
     }
 }
 

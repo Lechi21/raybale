@@ -1643,6 +1643,15 @@ header {
     }
 }
 
+@media (max-width: 1024px) {
+    .right-inners img {
+        width: 415px;
+        height: 300px;
+        opacity: 1;
+        border-radius: 19px;
+    }
+}
+
 
 /* ============================
    MOBILE RESPONSIVE FIXES
@@ -2048,8 +2057,13 @@ header {
     }
 
     .overlay-image img {
-        width: 380px;
-        height: 250px;
+        width: 380px !important;
+        height: 250px !important;
+        margin-left: 80px;
+    }
+
+    .dropdown a {
+        font-size: 18px !important;
     }
 
     .topSide .nepa {
@@ -2101,6 +2115,7 @@ header {
         width: 100%;
         max-width: 350px;
         height: auto;
+        margin-left: 0px;
     }
 
     .overlay-image p {

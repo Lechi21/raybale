@@ -4,10 +4,15 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
-        margin: 0;
-        font-family: 'poppins', sans-serif;
-        background: #f9f9f9;
+    margin: 0;
+    font-family: 'poppins', sans-serif;
+    background: #f9f9f9;
+    scroll-behavior: smooth;
 }
 
 .head {
@@ -193,6 +198,11 @@ header {
     letter-spacing: 1.25px;
     text-transform: uppercase; 
     cursor: pointer;
+}
+
+.service-btn a {
+    text-decoration: none;
+    color: #fff;
 }
 
 .service-btn .text-part {
@@ -1014,6 +1024,11 @@ header {
     cursor: pointer;
 }
 
+.service-btns {
+    text-decoration: none;
+    color: #000;
+}
+
 .hero-contenders {
     display: flex;
     color: #fff;
@@ -1053,6 +1068,11 @@ header {
     text-transform: uppercase;
     cursor: pointer;
     justify-content: flex-end;
+}
+
+.service-btnn a {
+    text-decoration: none;
+    color: #fff;
 }
 
 .topBoy {

@@ -65,3 +65,7 @@ function goPageD() {
   window.location.href = "services-1.html";
 }
 
+function JourneyStarts() {
+  const scroll = document.getElementById("Journeys")
+}
+

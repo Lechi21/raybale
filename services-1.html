@@ -56,11 +56,11 @@
             </div>
             <div class="hero-contenders">
                 <img src="images/square.png" alt="" style="width: 360px; height: 130px; object-fit: cover; position: relative; border-radius: 20px">
-                <p>“ Quote: From success story.We’ve purchased our first investment property and feel so much more confident about our financial future. We honestly couldn’t have done it without them.</p>
-                <button class="service-btnn">
+                <p>Quote: "Success in drayage isn’t earned in a single trip. It’s built through every safe mile, every on-time delivery, every container handled with precision and care. We rise by moving what others rely on."</p>
+                <!-- <button class="service-btnn">
                     <span class="text-part">Services</span>
                     <span class="material-icons-sharp">arrow_outward</span>
-                </button>
+                </button> -->
             </div>
         </div>
     </section>
@@ -290,44 +290,63 @@
         <span class="textTop">&bull; Free Consultation</span>
         <h2 class="quote-title">Start Your Free <br> Drayage Quote Below</h2>
 
-        <form class="quote-form">
+       <form class="quote-form" id="multiStepForm" action="drayage.php" method="POST">
             <div class="form-left">
-                <input type="text" id="YourName" placeholder="Your Name">
-                <input type="number" id="numbers" placeholder="Phone Number">
-                <input type="email" id="YourEmail" placeholder="Email">
+                <input type="text" id="YourName" name="YourName" placeholder="Your Name" required>
+                <input type="number" id="numbers" name="PhoneNumber" placeholder="Phone Number" required>
+                <input type="email" id="YourEmail" name="YourEmail" placeholder="Email" required>
 
-                <select name="containers-size">
-                    <option selected>Container Size</option>
-                    <option>20 ft</option>
-                    <option>40 ft</option>
-                    <option>45 ft</option>
+                <select name="ContainerSize" required>
+                    <option selected value="">Container Size</option>
+                    <option value="20ft">20ft Standard</option>
+                    <option value="40ft">40ft Standard</option>
+                    <option value="40ft_h">40ft High Cube</option>
+                    <option value="53ft_h">53ft Standard</option>
+                    <option value="other">Other</option>
                 </select>
 
-                <select name="Commodity-Type">
-                    <option selected>Commodity Type</option>
-                    <option>General Cargo</option>
-                    <option>Hazmat</option>
-                    <option>Refrigerated</option>
+                <select name="CommodityType" required>
+                    <option selected value="">Commodity Type</option>
+                    <option value="HazmatLegal">Hazmat - legal Weight</option>
+                    <option value="NonHazmatLegal">Non-Hazmat - legal Weight</option>
+                    <option value="HazmatOver">Hazmat - OverWeight</option>
+                    <option value="NonHazmatOver">Non-Hazmat - OverWeight</option>
                 </select>
             </div>
 
             <div class="form-right">
                 <div class="below-form-right">
-                    <select name="Transport-Type">
-                        <option selected>Transport Type</option>
-                        <option>Drayage</option>
-                        <option>Intermodal</option>
+                    <select name="TransportType" required>
+                        <option selected value="">Transport Type</option>
+                        <option value="Import">Import</option>
+                        <option value="Export">Export</option>
                     </select>
 
-                    <select name="Rail-Ramp">
-                        <option selected>Rail Ramp</option>
-                        <option>BNSF - Corwith</option>
-                        <option>CN - Harvey</option>
+                    <select name="RailRamp" required>
+                        <option selected value="">Rail Ramp</option>
+                        <option value="BNSF_Cicero">BNSF - Cicero</option>
+                        <option value="BNSF_Corwith">BNSF - Corwith</option>
+                        <option value="BNSF_Logistics_Park">BNSF - Logistics Park</option>
+                        <option value="BNSF_Willow_Spring">BNSF - Willow Spring</option>
+                        <option value="cn_harvey">CN Harvey</option>
+                        <option value="cn_joilet">CN Joilet</option>
+                        <option value="Canadian_Pacific">CPKC - Bensenville</option>
+                        <option value="CSX_59th">CSX 59th Street</option>
+                        <option value="CSX_Bedford">CSX Bedford Park</option>
+                        <option value="Rail">IAIS Blue Island</option>
+                        <option value="NS_calumet">NS Calumet</option>
+                        <option value="NS_Landers">NS Landers 97th</option>
+                        <option value="UP_G2_Rail">Global II G2 (Northlake)</option>
+                        <option value="UP_G4_joilet">UP Global IV G4 (Joliet JIT)</option>
+                        <option value="UP_yard">UP - Yard Center</option>
                     </select>
 
-                    <input type="text" id="zip" placeholder="Destination ZIP Code">
-                    <input type="text" id="optional" placeholder="Container # (optional)">
+                    <input type="text" id="zip" name="DestinationZIP" placeholder="Destination ZIP Code" required>
+                    <input type="text" id="optional" name="ContainerNumber" placeholder="Container # (optional)">
                 </div>
+
+                <div class="g-recaptcha" data-sitekey="6Lft7CUsAAAAAKmIip02FcjHUgwqj3nI_PXUbhuW"></div>
+
                 <div class="form-right-btn">
                     <button class="submit-btn">SUBMIT QUOTE REQUEST</button>
                 </div>
@@ -384,7 +403,6 @@
             <ul>
                 <li><a href="#servicePart">Services</a></li>
                 <li><a href="about.html">About Us</a></li>
-                <li><a href="faq.html">FAQ</a></li>
                 <li><a href="contact-us.html">Contact Us</a></li>
             </ul>
             </div>
@@ -407,11 +425,12 @@
             </div> -->
 
             <div class="footer-column">
-                <!-- <h4 class="footer-heading">LEGAL</h4>
+                <h4 class="footer-heading">RESOURCES</h4>
                 <ul>
-                    <li><a href="#">Privacy Policy</a></li>
-                    <li><a href="#">Terms and Condition</a></li>
-                </ul> -->
+                    <li><a href="faq.html">FAQ</a></li>
+                    <!-- <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms and Condition</a></li> -->
+                </ul>
 
                 <p class="footer-copy puppy">© 2025 RAYBALE US LLC. All rights reserved.</p>
             </div>
@@ -445,5 +464,6 @@
             cards.forEach(card => observer.observe(card));
         });
     </script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </body>
 </html>

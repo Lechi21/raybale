@@ -290,7 +290,7 @@
         <span class="textTop">&bull; Free Consultation</span>
         <h2 class="quote-title">Start Your Free <br> Drayage Quote Below</h2>
 
-       <form class="quote-form" id="multiStepForm" action="drayage.php" method="POST">
+       <form class="quote-form" id="multiStepForm" onsubmit="return validateRecaptcha(event)">
             <div class="form-left">
                 <input type="text" id="YourName" name="YourName" placeholder="Your Name" required>
                 <input type="number" id="numbers" name="PhoneNumber" placeholder="Phone Number" required>
@@ -465,5 +465,85 @@
         });
     </script>
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script>
+        function validateRecaptcha(event) {
+            let response = grecaptcha.getResponse();
+            if (response.length === 0) {
+                event.preventDefault();
+                alert("Please verify that you're not a robot.");
+                return false;
+            }
+            return true;
+        }
+    </script>
+    <!--<script>-->
+    <!--    document.getElementById("multiStepForm").addEventListener("submit", async function(e){-->
+    <!--      e.preventDefault();-->
+        
+    <!--      const recaptcha = grecaptcha.getResponse();-->
+    <!--      if(!recaptcha){-->
+    <!--        alert("Please verify that you're not a robot.");-->
+    <!--        return;-->
+    <!--      }-->
+        
+    <!--      const formData = new FormData(this);-->
+    <!--      formData.append("recaptcha", recaptcha);-->
+    <!--      const data = Object.fromEntries(formData.entries());-->
+        
+    <!--      try {-->
+    <!--        const res = await fetch("https://raybale.com/nodejs/raybale-backend/submit-quote", {-->
+    <!--          method: "POST",-->
+    <!--          headers: { "Content-Type": "application/json" },-->
+    <!--          body: JSON.stringify(data)-->
+    <!--        });-->
+        
+    <!--        const result = await res.json();-->
+        
+    <!--        if(result.status === "success") alert("Quote submitted successfully!");-->
+    <!--        else alert("Error: " + result.message);-->
+    <!--      } catch(err) {-->
+    <!--        alert("Error sending quote: " + err.message);-->
+    <!--      }-->
+    <!--    });-->
+    <!--</script>-->
+
+    <script>
+        document.getElementById("multiStepForm").addEventListener("submit", async function(e){
+            e.preventDefault();
+        
+            // Get reCAPTCHA response
+            const recaptcha = grecaptcha.getResponse();
+            if (!recaptcha) {
+                alert("Please verify that you're not a robot.");
+                return;
+            }
+        
+            // Collect form data
+            const formData = new FormData(this);
+            formData.append("recaptcha", recaptcha);  // include captcha for future
+            const data = Object.fromEntries(formData.entries());
+        
+            try {
+                const res = await fetch("https://raybale.com/submit-quote", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(data)
+                });
+        
+                const result = await res.json();
+        
+                if (result.status === "success") {
+                    alert("Quote submitted successfully!");
+                    this.reset();
+                    grecaptcha.reset(); // reset captcha
+                } else {
+                    alert("Error: " + (result.message || "Something went wrong"));
+                }
+            } catch (err) {
+                alert("Error sending quote: " + err.message);
+            }
+        });
+    </script>
+
 </body>
 </html>

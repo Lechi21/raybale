@@ -290,7 +290,7 @@
         <span class="textTop">&bull; Free Consultation</span>
         <h2 class="quote-title">Start Your Free <br> Drayage Quote Below</h2>
 
-       <form class="quote-form" id="multiStepForm" onsubmit="return validateRecaptcha(event)">
+        <form class="quote-form" id="multiStepForm">
             <div class="form-left">
                 <input type="text" id="YourName" name="YourName" placeholder="Your Name" required>
                 <input type="number" id="numbers" name="PhoneNumber" placeholder="Phone Number" required>
@@ -298,19 +298,19 @@
 
                 <select name="ContainerSize" required>
                     <option selected value="">Container Size</option>
-                    <option value="20ft">20ft Standard</option>
-                    <option value="40ft">40ft Standard</option>
-                    <option value="40ft_h">40ft High Cube</option>
-                    <option value="53ft_h">53ft Standard</option>
+                    <option value="20ft Standard">20ft Standard</option>
+                    <option value="40ft High Cube">40ft High Cube</option>
+                    <option value="40ft Standard">40ft Standard</option>
+                    <option value="53ft Standard">53ft Standard</option>
                     <option value="other">Other</option>
                 </select>
 
                 <select name="CommodityType" required>
                     <option selected value="">Commodity Type</option>
-                    <option value="HazmatLegal">Hazmat - legal Weight</option>
-                    <option value="NonHazmatLegal">Non-Hazmat - legal Weight</option>
-                    <option value="HazmatOver">Hazmat - OverWeight</option>
-                    <option value="NonHazmatOver">Non-Hazmat - OverWeight</option>
+                    <option value="Hazmat - legal Weight">Hazmat - legal Weight</option>
+                    <option value="Non-Hazmat - legal Weight">Non-Hazmat - legal Weight</option>
+                    <option value="Hazmat - OverWeight">Hazmat - OverWeight</option>
+                    <option value="Non-Hazmat - OverWeight">Non-Hazmat - OverWeight</option>
                 </select>
             </div>
 
@@ -324,31 +324,33 @@
 
                     <select name="RailRamp" required>
                         <option selected value="">Rail Ramp</option>
-                        <option value="BNSF_Cicero">BNSF - Cicero</option>
-                        <option value="BNSF_Corwith">BNSF - Corwith</option>
-                        <option value="BNSF_Logistics_Park">BNSF - Logistics Park</option>
-                        <option value="BNSF_Willow_Spring">BNSF - Willow Spring</option>
-                        <option value="cn_harvey">CN Harvey</option>
-                        <option value="cn_joilet">CN Joilet</option>
-                        <option value="Canadian_Pacific">CPKC - Bensenville</option>
-                        <option value="CSX_59th">CSX 59th Street</option>
-                        <option value="CSX_Bedford">CSX Bedford Park</option>
-                        <option value="Rail">IAIS Blue Island</option>
-                        <option value="NS_calumet">NS Calumet</option>
-                        <option value="NS_Landers">NS Landers 97th</option>
-                        <option value="UP_G2_Rail">Global II G2 (Northlake)</option>
-                        <option value="UP_G4_joilet">UP Global IV G4 (Joliet JIT)</option>
-                        <option value="UP_yard">UP - Yard Center</option>
+                        <option value="BNSF - Cicero">BNSF - Cicero</option>
+                        <option value="BNSF - Corwith">BNSF - Corwith</option>
+                        <option value="BNSF - Logistics Park">BNSF - Logistics Park</option>
+                        <option value="BNSF - Willow Spring">BNSF - Willow Spring</option>
+                        <option value="CN Harvey">CN Harvey</option>
+                        <option value="CN Joilet">CN Joilet</option>
+                        <option value="CPKC - Bensenville">CPKC - Bensenville</option>
+                        <option value="CSX 59th Street">CSX 59th Street</option>
+                        <option value="CSX Bedford Park">CSX Bedford Park</option>
+                        <option value="IAIS Blue Island">IAIS Blue Island</option>
+                        <option value="NS Calumet">NS Calumet</option>
+                        <option value="NS Landers 97th">NS Landers 97th</option>
+                        <option value="Global II G2 (Northlake)">Global II G2 (Northlake)</option>
+                        <option value="UP Global IV G4 (Joliet JIT)">UP Global IV G4 (Joliet JIT)</option>
+                        <option value="UP - Yard Center">UP - Yard Center</option>
                     </select>
 
                     <input type="text" id="zip" name="DestinationZIP" placeholder="Destination ZIP Code" required>
                     <input type="text" id="optional" name="ContainerNumber" placeholder="Container # (optional)">
                 </div>
-
+                
                 <div class="g-recaptcha" data-sitekey="6Lft7CUsAAAAAKmIip02FcjHUgwqj3nI_PXUbhuW"></div>
 
+                <input type="hidden" name="recaptcha_token" id="recaptcha_token">
+
                 <div class="form-right-btn">
-                    <button class="submit-btn">SUBMIT QUOTE REQUEST</button>
+                    <button type="button" class="submit-btn" onclick="validateRecaptcha()">SUBMIT QUOTE REQUEST</button>
                 </div>
             </div>
         </form>
@@ -466,83 +468,54 @@
     </script>
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <script>
-        function validateRecaptcha(event) {
+        function validateRecaptcha() {
+            // Get recaptcha response
             let response = grecaptcha.getResponse();
+            
             if (response.length === 0) {
-                event.preventDefault();
                 alert("Please verify that you're not a robot.");
                 return false;
             }
-            return true;
-        }
-    </script>
-    <!--<script>-->
-    <!--    document.getElementById("multiStepForm").addEventListener("submit", async function(e){-->
-    <!--      e.preventDefault();-->
-        
-    <!--      const recaptcha = grecaptcha.getResponse();-->
-    <!--      if(!recaptcha){-->
-    <!--        alert("Please verify that you're not a robot.");-->
-    <!--        return;-->
-    <!--      }-->
-        
-    <!--      const formData = new FormData(this);-->
-    <!--      formData.append("recaptcha", recaptcha);-->
-    <!--      const data = Object.fromEntries(formData.entries());-->
-        
-    <!--      try {-->
-    <!--        const res = await fetch("https://raybale.com/nodejs/raybale-backend/submit-quote", {-->
-    <!--          method: "POST",-->
-    <!--          headers: { "Content-Type": "application/json" },-->
-    <!--          body: JSON.stringify(data)-->
-    <!--        });-->
-        
-    <!--        const result = await res.json();-->
-        
-    <!--        if(result.status === "success") alert("Quote submitted successfully!");-->
-    <!--        else alert("Error: " + result.message);-->
-    <!--      } catch(err) {-->
-    <!--        alert("Error sending quote: " + err.message);-->
-    <!--      }-->
-    <!--    });-->
-    <!--</script>-->
-
-    <script>
-        document.getElementById("multiStepForm").addEventListener("submit", async function(e){
-            e.preventDefault();
-        
-            // Get reCAPTCHA response
-            const recaptcha = grecaptcha.getResponse();
-            if (!recaptcha) {
-                alert("Please verify that you're not a robot.");
-                return;
-            }
-        
+            
+            // Store token in hidden field
+            document.getElementById('recaptcha_token').value = response;
+            
             // Collect form data
-            const formData = new FormData(this);
-            formData.append("recaptcha", recaptcha);  // include captcha for future
-            const data = Object.fromEntries(formData.entries());
-        
-            try {
-                const res = await fetch("https://raybale.com/submit-quote", {
-                    method: "POST",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify(data)
-                });
-        
-                const result = await res.json();
-        
-                if (result.status === "success") {
-                    alert("Quote submitted successfully!");
-                    this.reset();
-                    grecaptcha.reset(); // reset captcha
+            const form = document.getElementById('multiStepForm');
+            const formData = new FormData(form);
+            
+            // Show loading state
+            const submitBtn = document.querySelector('.submit-btn');
+            submitBtn.textContent = 'Sending...';
+            submitBtn.disabled = true;
+            
+            // Send via AJAX
+            fetch('https://raybale.com/submit.php', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.text())
+            .then(data => {
+                console.log("Response:", data); // For debugging
+                
+                if (data.includes('SUCCESS') || data.includes('thank-you')) {
+                    // Redirect to thank you page
+                    window.location.href = 'https://raybale.com/thank-you.html';
                 } else {
-                    alert("Error: " + (result.message || "Something went wrong"));
+                    alert('Error: ' + data);
+                    grecaptcha.reset(); // Reset captcha
+                    submitBtn.textContent = 'SUBMIT QUOTE REQUEST';
+                    submitBtn.disabled = false;
                 }
-            } catch (err) {
-                alert("Error sending quote: " + err.message);
-            }
-        });
+            })
+            .catch(error => {
+                console.error("Fetch error:", error);
+                alert('Network error. Please try again.');
+                grecaptcha.reset();
+                submitBtn.textContent = 'SUBMIT QUOTE REQUEST';
+                submitBtn.disabled = false;
+            });
+        }
     </script>
 
 </body>

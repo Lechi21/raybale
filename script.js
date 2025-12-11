@@ -69,3 +69,7 @@ function JourneyStarts() {
   const scroll = document.getElementById("Journeys")
 }
 
+function goDrayage() {
+  window.location.href = "drayage.html";
+}
+

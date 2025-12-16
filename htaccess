@@ -1,0 +1,10 @@
+# Disable ModSecurity for specific files
+<IfModule mod_security.c>
+  SecRuleEngine Off
+  SecAuditEngine Off
+</IfModule>
+
+# Or whitelist specific file
+<Location "/submit.php">
+  SecRuleRemoveById 300000 300001 300002
+</Location>

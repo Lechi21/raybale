@@ -286,5 +286,58 @@
             cards.forEach(card => observer.observe(card));
         });
     </script>
+    
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script>
+        function validateRecaptcha() {
+            // Get recaptcha response
+            let response = grecaptcha.getResponse();
+            
+            if (response.length === 0) {
+                alert("Please verify that you're not a robot.");
+                return false;
+            }
+            
+            // Store token in hidden field
+            document.getElementById('recaptcha_token').value = response;
+            
+            // Collect form data
+            const form = document.getElementById('multiStepForm');
+            const formData = new FormData(form);
+            
+            // Show loading state
+            const submitBtn = document.querySelector('.submit-btn');
+            submitBtn.textContent = 'Sending...';
+            submitBtn.disabled = true;
+            
+            // Send via AJAX
+            fetch('https://raybale.com/submit.php', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.text())
+            .then(data => {
+                console.log("Response:", data); // For debugging
+                
+                if (data.includes('SUCCESS') || data.includes('thank-you')) {
+                    // Redirect to thank you page
+                    window.location.href = 'https://raybale.com/thank-you.html';
+                } else {
+                    alert('Error: ' + data);
+                    grecaptcha.reset(); // Reset captcha
+                    submitBtn.textContent = 'SUBMIT QUOTE REQUEST';
+                    submitBtn.disabled = false;
+                }
+            })
+            .catch(error => {
+                console.error("Fetch error:", error);
+                alert('Network error. Please try again.');
+                grecaptcha.reset();
+                submitBtn.textContent = 'SUBMIT QUOTE REQUEST';
+                submitBtn.disabled = false;
+            });
+        }
+    </script>
+
 </body>
 </html>

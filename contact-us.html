@@ -34,7 +34,7 @@
                             menu_open
                         </span>Home</a>
                 </nav>
-                <div class="logoTexts">
+                <div class="logoTexts" onclick="goDrayage()" style="cursor: pointer;">
                     <p><span class="material-icons-sharp">
                         arrow_outward
                         </span>
@@ -87,7 +87,7 @@
                         </span>CLOSE
                     </a>
                 </button>
-                <div class="logoText">
+                <div class="logoText" onclick="goDrayage()" style="cursor: pointer;">
                     <p><span class="material-icons-sharp">
                             arrow_outward
                         </span>
@@ -159,7 +159,7 @@
                             
                         </p>
                         <p style="margin-top: 20px;">Urgent after-hours requests accepted via email or dispatch line.</p>
-                        <p class="down">Get Free Drayage Quote</p>
+                        <p class="down" onclick="goDrayage()" style="cursor: pointer;">Get Free Drayage Quote</p>
                     </div>
                 </div>
                 <div class="right">
@@ -178,13 +178,17 @@
         </h2>
         <p>Use the form below — we’ll route it to the right <br> team and get back to you fast.</p>
 
-        <form class="quote-forms">
-            <input type="text" id="YourName" placeholder="Your Name">
-            <input type="email" id="YourEmail" placeholder="Email">
-            <input type="number" id="numbers" placeholder="Phone Number">
-
-            <textarea name="Messages" id="message"></textarea>
-            <button class="submit-btn">SEND REQUEST</button>
+        <form class="quote-forms" id="contactForm" method="POST" enctype="multipart/form-data">
+            <input type="text" name="YourName" id="YourName" placeholder="Your Name" required>
+            <input type="email" name="YourEmail" id="YourEmail" placeholder="Email" required>
+            <input type="tel" name="PhoneNumber" id="PhoneNumber" placeholder="Phone Number" required>
+            
+            <textarea name="Message" id="message" placeholder="Your message..." required></textarea>
+            
+            <!-- Optional: Add reCAPTCHA here if needed -->
+            <!-- <div class="g-recaptcha" data-sitekey="YOUR_SITE_KEY"></div> -->
+            
+            <button type="submit" class="submit-btn">SEND REQUEST</button>
         </form>
     </section>
 
@@ -298,6 +302,42 @@
             );
 
             cards.forEach(card => observer.observe(card));
+        });
+    </script>
+    
+
+    <script>
+        // JavaScript for AJAX submission (optional but recommended)
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(this);
+            const submitBtn = this.querySelector('.submit-btn');
+            
+            // Show loading state
+            submitBtn.textContent = 'Sending...';
+            submitBtn.disabled = true;
+            
+            fetch('contact.php', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.text())
+            .then(data => {
+                if (data.includes('SUCCESS')) {
+                    alert('Message sent successfully!');
+                    this.reset(); // Clear form
+                } else {
+                    alert('Error: ' + data);
+                }
+                submitBtn.textContent = 'SEND REQUEST';
+                submitBtn.disabled = false;
+            })
+            .catch(error => {
+                alert('Network error. Please try again.');
+                submitBtn.textContent = 'SEND REQUEST';
+                submitBtn.disabled = false;
+            });
         });
     </script>
 </body>

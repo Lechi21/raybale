@@ -8,6 +8,21 @@ require 'PHPMailer-master/src/Exception.php';
 require 'PHPMailer-master/src/PHPMailer.php';
 require 'PHPMailer-master/src/SMTP.php';
 
+// ===== NAME CHEAP PRIVATE EMAIL CONFIGURATION =====
+define('PRIVATE_EMAIL_HOST', 'mail.privateemail.com');
+define('PRIVATE_EMAIL_PORT', 587);
+define('PRIVATE_EMAIL_SECURE', PHPMailer::ENCRYPTION_STARTTLS);
+
+// Email addresses - UPDATED FOR PRIVATE EMAIL
+define('ADMIN_EMAIL', 'trucking@raybale.com');      // Where quote requests go
+define('SITE_NAME', 'Raybale.com');
+define('SENDER_EMAIL', 'no-reply@raybale.com');         // Alias - shown as "From"
+define('SENDER_NAME', 'Raybale Drayage Quote Form');
+
+// IMPORTANT: Use main mailbox credentials for SMTP
+define('SMTP_USERNAME', 'trucking@raybale.com');    // Your MAIN mailbox
+define('SMTP_PASSWORD', 'Kingsley$27');             // Password for trucking@raybale.com
+
 // Now continue with your code
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
@@ -39,7 +54,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // 3. Create email content - IMPROVED FORMAT
     $subject = "New Drayage Quote Request - " . date('m/d/Y');
     
-    // Option A: Plain Text Version (for isHTML(false))
+    // Plain Text Version
     $plainMessage = "NEW DRAYAGE QUOTE REQUEST
 =============================
 Date: " . date('F j, Y') . "
@@ -63,7 +78,7 @@ Container #: " . ($containerNum ?: 'Not provided') . "
 This quote request was submitted via Raybale.com Drayage Form
 ";
     
-    // Option B: HTML Version (for isHTML(true))
+    // HTML Version
     $htmlMessage = '
     <!DOCTYPE html>
     <html>
@@ -117,60 +132,114 @@ This quote request was submitted via Raybale.com Drayage Form
     </html>
     ';
     
-    // 4. Configure and send email
+    // 4. Configure and send email with PRIVATE EMAIL
     $mail = new PHPMailer(true);
     
     try {
-        // Server settings
+        // === PRIVATE EMAIL SERVER SETTINGS ===
         $mail->isSMTP();
-        $mail->Host       = 'mail.raybale.com';
+        $mail->Host       = PRIVATE_EMAIL_HOST;        // mail.privateemail.com
         $mail->SMTPAuth   = true;
-        $mail->Username   = 'no-reply@raybale.com';
-        $mail->Password   = '9mm]Ny!tBjs4';
-        $mail->SMTPSecure = false;
-        $mail->SMTPAutoTLS = false;
-        $mail->Port       = 587;
+        $mail->Username   = SMTP_USERNAME;             // trucking@raybale.com
+        $mail->Password   = SMTP_PASSWORD;             // Your real password
+        $mail->SMTPSecure = PRIVATE_EMAIL_SECURE;      // ENCRYPTION_STARTTLS
+        $mail->Port       = PRIVATE_EMAIL_PORT;        // 587
         
-        // Alternative settings if above doesn't work:
-        // $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-        // $mail->Port = 587;
-        // OR
-        // $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
-        // $mail->Port = 465;
+        // Sender/Recipient - USING ALIAS WITH MAIN MAILBOX AUTH
+        $mail->setFrom(SENDER_EMAIL, SENDER_NAME);      // Shows as from no-reply@raybale.com
+        $mail->addAddress(ADMIN_EMAIL);                 // Goes to trucking@raybale.com
+        $mail->addReplyTo($email, $name);               // So you can reply to submitter
         
-        // Sender/Recipient - CORRECTED
-        $mail->setFrom('no-reply@raybale.com', 'Raybale Drayage Form');
-        $mail->addAddress('dakenny21@gmail.com');
-        // Add Reply-To so recipient can reply directly to the submitter
-        $mail->addReplyTo($email, $name);
+        // BCC recipients
+        $mail->addBCC('Thankgodoboh@gmail.com');
+        $mail->addBCC('contact.insanjo@gmail.com');
         
-        // Optional: Add CC or BCC
-        // $mail->addCC('someone@example.com');
-        // $mail->addBCC('admin@example.com');
-        
-        
+        // Email content
         $mail->isHTML(true);
         $mail->Subject = $subject;
         $mail->Body    = $htmlMessage;
-        // Add plain text alternative for email clients that don't support HTML
         $mail->AltBody = $plainMessage;
+        $mail->CharSet = 'UTF-8';
         
-        
-        // For debugging - shows SMTP conversation
+        // Optional debug - uncomment if emails aren't sending
         // $mail->SMTPDebug = 2;
         
         if ($mail->send()) {
+            // Optional: Send confirmation to the submitter
+            sendQuoteConfirmation($email, $name);
             echo "SUCCESS";
         } else {
-            echo "FAILED to send email";
+            echo "Failed to send quote request. Please try again.";
         }
         
     } catch (Exception $e) {
-        echo "Error: " . $e->getMessage();
-        // For more detailed error info during testing:
-        // echo "Detailed error: " . $mail->ErrorInfo;
+        error_log("[" . date('Y-m-d H:i:s') . "] Quote email error: " . $e->getMessage());
+        echo "An error occurred. Please call us directly for your quote.";
     }
 } else {
     echo "Invalid request method.";
+}
+
+// === CONFIRMATION EMAIL FUNCTION FOR QUOTE REQUESTS ===
+function sendQuoteConfirmation($toEmail, $toName) {
+    $confirmation = new PHPMailer(true);
+    
+    try {
+        // USE SAME PRIVATE EMAIL SETTINGS
+        $confirmation->isSMTP();
+        $confirmation->Host       = PRIVATE_EMAIL_HOST;
+        $confirmation->SMTPAuth   = true;
+        $confirmation->Username   = SMTP_USERNAME;
+        $confirmation->Password   = SMTP_PASSWORD;
+        $confirmation->SMTPSecure = PRIVATE_EMAIL_SECURE;
+        $confirmation->Port       = PRIVATE_EMAIL_PORT;
+        
+        $confirmation->setFrom(SENDER_EMAIL, SITE_NAME . ' Drayage');
+        $confirmation->addAddress($toEmail, $toName);
+        $confirmation->addReplyTo(ADMIN_EMAIL, SITE_NAME . ' Drayage Team');
+        
+        $confirmation->isHTML(true);
+        $confirmation->Subject = 'Your Drayage Quote Request - ' . SITE_NAME;
+        
+        $confirmationBody = '
+        <!DOCTYPE html>
+        <html>
+        <head><meta charset="UTF-8"></head>
+        <body style="margin:0; padding:0; font-family:Arial,sans-serif;">
+        <div style="max-width:600px; margin:auto; background:#fff; border:1px solid #ddd; border-radius:8px; padding:25px;">
+            <div style="background:#f0f7ff; padding:20px; border-radius:6px; text-align:center; margin-bottom:25px;">
+                <h2 style="margin:0; color:#2c3e50;">✅ Quote Request Received!</h2>
+            </div>
+            
+            <p>Dear ' . $toName . ',</p>
+            <p>Thank you for requesting a drayage quote from <strong>' . SITE_NAME . '</strong>. Our logistics team has received your shipment details and will provide you with a competitive quote within 1 business day.</p>
+            
+            <div style="background:#f8f9fa; padding:15px; border-radius:6px; margin:20px 0;">
+                <p style="margin:0; color:#555;"><strong>Next Steps:</strong></p>
+                <ul style="margin:10px 0 0 20px; color:#555;">
+                    <li>Our team will review your shipment requirements</li>
+                    <li>We\'ll check availability and provide pricing</li>
+                    <li>You\'ll receive our quote via email</li>
+                    <li>For urgent requests, please call us directly</li>
+                </ul>
+            </div>
+            
+            <div style="margin-top:30px; padding-top:20px; border-top:1px solid #eee; text-align:center; color:#666;">
+                <p style="margin:0;"><strong>' . SITE_NAME . ' Drayage Team</strong></p>
+                <p style="margin:5px 0 0 0; font-size:12px;">Professional Midwest Drayage Solutions</p>
+            </div>
+        </div>
+        </body>
+        </html>';
+        
+        $confirmation->Body = $confirmationBody;
+        $confirmation->AltBody = "Thank you for your drayage quote request. " . SITE_NAME . " will provide you with a competitive quote within 1 business day.";
+        $confirmation->CharSet = 'UTF-8';
+        
+        $confirmation->send();
+        
+    } catch (Exception $e) {
+        error_log("Quote confirmation failed to $toEmail: " . $e->getMessage());
+    }
 }
 ?>
